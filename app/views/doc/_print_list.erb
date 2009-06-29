@@ -1,0 +1,13 @@
+<table>
+<% col = 0 %>
+<tr class="<%= cycle('oddrow', 'evenrow') %>">
+<% @print_list.each do |item| %>
+<td><%= item %><% col += 1 %></td>
+  <% if col == 5 %>
+    </tr>
+    <% col = 0 %>
+    <tr class="<%= cycle('oddrow', 'evenrow') %>">
+  <% end %>
+<% end %>
+</tr></table>
+<br>

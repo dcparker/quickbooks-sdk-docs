@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag "formdir.css" %>
+
+<h1>List of QuickBooks objects </h1>
+
+<% items=%w( ARRefundCreditCard Account AccountTaxLineInfo AppliedToTxn BillPaymentCheck BillPaymentCreditCard Bill BillToPay BillingRatePerItem BillingRate BuildAssembly CashBackInfo Charge Check Class CompanyActivity Company ComponentItemLine CreditCardCharge CreditCardCredit CreditMemoLineGroup CreditMemoLine CreditMemo CustomerMsg Customer CustomerType DataEventRecoveryInfo DataEventSubscription DataExtDefDel DataExtDef DataExtDel DataExt DateDrivenTerms DepositLine Deposit DiscountLine Employee EstimateLineGroup EstimateLine Estimate ExpenseLine Host InventoryAdjustmentLine InventoryAdjustment InvoiceLineGroup InvoiceLine Invoice ItemAssembliesCanBuild ItemDiscount ItemFixedAsset ItemGroupLine ItemGroup ItemInventoryAssembly ItemInventory ItemLine ItemNonInventory ItemOtherCharge ItemPayment ItemReceipt ItemSalesTaxGroup ItemSalesTax ItemService ItemSubtotal JobType JournalEntry ListDeleted OtherName PaymentMethod PayrollItemNonWage PayrollItemWage Preferences PriceLevelPerItem PriceLevel PurchaseOrderLineGroup PurchaseOrderLine PurchaseOrder ReceivePayment ReceivePaymentToDeposit RefundAppliedToTxn Report SalesOrderLineGroup SalesOrderLine SalesOrder SalesReceiptLineGroup SalesReceiptLine SalesReceipt SalesRep SalesTaxCode SalesTaxLine SalesTaxPaymentCheckLine SalesTaxPaymentCheck ShipMethod ShippingLine StandardTerms TaxLineInfo Template TimeTracking ToDo Transaction TxnDeleted UIEventSubscription UIExtensionSubscription UnitOfMeasureSet VehicleMileage Vehicle VendorCredit Vendor VendorType WorkersCompCode ) %>
+
+<% items= QB.xsd.elements.keys.sort.select {|i| i =~ /Ret$/}.collect {|i| i[0..i.length-4]} %>
+
+
+
+<% items.each do |i| %>
+  <%= link_to(i,:action=>'view_docs', :id => i) %><br>
+<% end %>

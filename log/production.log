@@ -1,0 +1,38 @@
+
+
+Processing DocController#view_docs (for 192.168.0.209 at 2009-06-29 09:53:38) [GET]
+  Parameters: {"id"=>"Invoice"}
+Rendering doc/view_docs
+
+ActionView::TemplateError (undefined local variable or method `p_list' for #<ActionView::Base:0x2b18264fc838>) on line #4 of app/views/doc/_print_list.erb:
+1: <table>
+2: <% col = 0 %>
+3: <tr class="<%= cycle('oddrow', 'evenrow') %>">
+4: <% p_list.each do |item| %>
+5: <td><%= item %><% col += 1 %></td>
+6:   <% if col == 5 %>
+7:     </tr>
+
+    app/views/doc/_print_list.erb:4
+    app/views/doc/view_docs.html.erb:20
+
+Rendering /rails/qbookdocs/public/500.html (500 Internal Server Error)
+
+
+Processing DocController#view_docs (for 192.168.0.209 at 2009-06-29 09:54:02) [GET]
+  Parameters: {"id"=>"Invoice"}
+Rendering doc/view_docs
+
+ActionView::TemplateError (undefined local variable or method `list' for #<ActionView::Base:0x2b27788ce838>) on line #4 of app/views/doc/_print_list.erb:
+1: <table>
+2: <% col = 0 %>
+3: <tr class="<%= cycle('oddrow', 'evenrow') %>">
+4: <% list.each do |item| %>
+5: <td><%= item %><% col += 1 %></td>
+6:   <% if col == 5 %>
+7:     </tr>
+
+    app/views/doc/_print_list.erb:4
+    app/views/doc/view_docs.html.erb:20
+
+Rendering /rails/qbookdocs/public/500.html (500 Internal Server Error)

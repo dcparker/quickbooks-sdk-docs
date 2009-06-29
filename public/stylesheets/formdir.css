@@ -1,0 +1,59 @@
+
+.formdir-error {
+  color: red;
+  border: thick double;
+  border-color: red;
+  padding: 5px;
+}
+
+.formdir-warning {
+  color: red;
+  border: thin double;
+  border-color: red;
+  padding: 5px;
+}
+
+.formdir-notice {
+  color: green;
+  border: thin double;
+  border-color: green;
+  padding: 5px;
+}
+
+div.formdir_menu {
+  position:absolute;
+  top:5px;
+  left:5px;
+  padding-left: 5px;
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+div.formdir_top_spacing {
+  padding-top: 50px;
+}
+
+div.footbar tr {
+margin:0;
+padding:1em;
+background-color: #DDDDDD;
+font-size: 8px;
+}
+
+a#wizard {
+font-size: 200%;
+}
+
+.sbl { background: url('media/bl.gif') bottom left no-repeat #EDEDED; width: 50%; text-align: center; min-width: 100px; }
+.sbr { background: url('media/br.gif') bottom right no-repeat; }
+.stl { background: url('media/tl.gif') top left no-repeat; }
+.str { background: url('media/tr.gif') top right no-repeat; padding: 10px; } 
+.sb { padding: 2px 0px 10px 50px; background: url('media/b.gif') 30px top no-repeat; }
+
+*  {  font-size: 12px; font-family: Trebuchet, Verdana, Helvetica, sans-serif; }
+
+h1  {  font-size: 20px; }
+h2  {  font-size: 18px; }
+
+table tr.evenrow {background-color: white; }
+table tr.oddrow {background-color: silver; }

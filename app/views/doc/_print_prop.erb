@@ -1,0 +1,16 @@
+<table>
+<% col = 0 %>
+<tr class="<%= cycle('oddrow', 'evenrow') %>">
+<% @print_list.each do |item| %>
+<% id_link = 'QB::'+params[:id]+'.'+interface+"['"+item+"']" %>
+<td><%= link_to(item, :action => 'details', :id => params[:id], :interface => interface, :item => item) %><% col += 1 %></td>
+  <% if col == 5 %>
+    </tr>
+    <% col = 0 %>
+    <tr class="<%= cycle('oddrow', 'evenrow') %>">
+  <% end %>
+<% end %>
+</tr></table>
+<br>
+
+

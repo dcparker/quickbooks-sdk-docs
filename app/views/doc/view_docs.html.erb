@@ -1,0 +1,47 @@
+<%= stylesheet_link_tag "formdir.css" %>
+
+
+<h1><%=params[:id]%> Help </h1>
+
+<%= link_to("<h2>Back to Main Index </h2>",:action => 'index') %>
+
+<br>
+
+<h3>General Help</h3>
+<% classname = "QB::"+params[:id]+".help" %>
+<%= eval(classname) %>
+
+<br>
+
+<h3>Object Methods</h3>
+<% classname = "QB::"+params[:id]+".write_xsd.methods.sort" %>
+<% @print_list = eval(classname) %>
+
+<%= render :partial => 'print_list' %>
+<br>
+
+<h3>Create Properties</h3>
+<% classname = "QB::"+params[:id]+".write_xsd.attributes.sort" %>
+<% @print_list = eval(classname)%>
+
+<%= render :partial => 'print_prop', :locals => { :interface => 'write_xsd'} %>
+
+<h3>List Query Attributes</h3>
+<% classname = "QB::"+params[:id]+".query_attributes.sort" %>
+<% @print_list = eval(classname) %>
+
+<%= render :partial => 'print_list' %>
+
+<h3>Available Query Params</h3>
+<% classname = "QB::"+params[:id]+".read_xsd.attributes.sort" %>
+<% @print_list = eval(classname) %>
+
+<%= render :partial => 'print_prop', :locals => { :interface => 'read_xsd'} %>
+
+
+<h3>Modifiable Properties</h3>
+<% classname = "QB::"+params[:id]+".read_write_xsd.attributes.sort" %>
+<% @print_list = eval(classname) %>
+
+<%= render :partial => 'print_prop', :locals => { :interface => 'read_write_xsd'} %>
+

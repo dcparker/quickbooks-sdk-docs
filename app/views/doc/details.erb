@@ -1,0 +1,52 @@
+<%= stylesheet_link_tag "formdir.css" %>
+
+<!-- {"interface"=>"write_xsd", "action"=>"details", "id"=>"Invoice", "controller"=>"doc", "item"=>"CustomerRef"} -->
+
+<h1>Parameters for <%= link_to(params[:id],:action => 'view_docs', :id => params[:id])%>.<%= params[:interface]%>[<%= params[:item] %>]</h1>
+
+<%= link_to("<h2>Back</h2>",:action => :back) %>
+
+<br>
+
+<% classname = "QB::"+params[:id]+'.'+params[:interface]+"['"+params[:item]+"']"+".attributes" %>
+<% @print_list = eval(classname) %>
+
+<table>
+<tr>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<td>Type</td>
+<td>Type Restriction</td>
+<td>Type Max Lenght</td>
+<td>Required</td>
+<td>Repeatable</td>
+</tr>
+
+<% col = 0 %>
+<% @print_list.each do |item| %>
+<tr class="<%= cycle('oddrow', 'evenrow') %>">
+<td><b><%= item %><% col += 1 %></b></td>
+<td></td>
+<% classname = "QB::"+params[:id]+'.'+params[:interface]+"['"+params[:item]+"']"+"['"+item+"']"+".inspect" %>
+<%= eval(classname) %><br>
+
+<% classname = "QB::"+params[:id]+'.'+params[:interface]+"['"+params[:item]+"']"+"['"+item+"']"+".type" %>
+<td><%= eval(classname).inspect %></td>
+
+<% classname = "QB::"+params[:id]+'.'+params[:interface]+"['"+params[:item]+"']"+"['"+item+"']"+".type.restriction" %>
+<td><%= eval(classname).inspect %></td>
+
+<% classname = "QB::"+params[:id]+'.'+params[:interface]+"['"+params[:item]+"']"+"['"+item+"']"+".type.restriction.maxLength" %>
+<td><%= eval(classname) %></td>
+
+<% classname = "QB::"+params[:id]+'.'+params[:interface]+"['"+params[:item]+"']"+".required?('"+item+"')" %>
+<td><%= eval(classname) %></td>
+
+<% classname = "QB::"+params[:id]+'.'+params[:interface]+"['"+params[:item]+"']"+".repeatable?('"+item+"')" %>
+<td><%= eval(classname) %></td>
+
+</td></tr>
+<% end %>
+</table>
+<br>
+
